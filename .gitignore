@@ -6,7 +6,7 @@ __pycache__/
 *.pyd
 *.db
 *.sqlite
-.env/
+*.env
 output_embeddings/
 pdfs/
 Extracted_data/
