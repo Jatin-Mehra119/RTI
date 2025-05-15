@@ -1,4 +1,4 @@
-# RTI Data Processing Pipeline
+# RTI-Knowledge-Pipeline
 
 This project automates the extraction, processing, and embedding generation for Right to Information (RTI) data from various sources including websites and PDF documents.
 
