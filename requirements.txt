@@ -1,0 +1,13 @@
+streamlit
+sentence_transformers>=2.2.2
+PyPDF2>=3.0.1
+groq
+pandas>=2.0.0
+beautifulsoup4>=4.12.2
+requests>=2.31.0
+langchain
+langchain-community
+langchain-groq
+tqdm>=4.66.1
+numpy>=1.26.0
+torch>=2.0.0
