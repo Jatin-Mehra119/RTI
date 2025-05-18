@@ -14,5 +14,6 @@ Extracted_data/
 *.json
 *.jsonl
 Cleaned_data/
+output_embeddings_rag/
 *.xlsx
 *.xls
