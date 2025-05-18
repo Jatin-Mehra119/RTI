@@ -11,7 +11,9 @@ This project automates the extraction, processing, and embedding generation for 
 ├── links/                         # Extracted links for scraping
 ├── logs/                          # Log files from pipeline runs
 ├── Misc/                          # Miscellaneous scripts
-├── output_embeddings/             # Generated embeddings
+├── output_embeddings_rag/         # RAG-optimized embeddings
+│   ├── embeddings.npy             # Combined embeddings for RAG
+│   └── metadata.json              # Metadata for RAG embeddings
 ├── pdfs/                          # Source PDF files
 ├── Scrapers/                      # Individual scraper scripts
 │   ├── Link_Scraper.py            # Extracts case law links
@@ -31,13 +33,17 @@ The pipeline automates the following steps:
 3. **PDF Text Extraction**: Extract raw text from the RTI Guide PDF
 4. **PDF Q&A Extraction**: Extract FAQs from the RTI FAQ PDF
 5. **Embedding Generation**: Generate embeddings for all extracted text data
+6. **RAG Optimization**: Process embeddings for retrieval augmented generation use
 
 ## Setup Instructions
 
 1. Create and activate a Python virtual environment:
    ```
    python -m venv venv
+   # On Windows
    .\venv\Scripts\activate
+   # On Linux/macOS
+   source venv/bin/activate
    ```
 
 2. Install the required dependencies:
@@ -75,7 +81,14 @@ All pipeline logs are saved in the `logs/` directory with timestamps for trackin
 
 - **case_law_data.csv**: Contains the extracted links and summaries
 - **case_law_data_with_content.csv**: Contains the full extracted content from each link
-- **rti_cases.jsonl**: Contains the extracted content in JSONL format
+- **rti_cases.jsonl**: Contains the extracted case content in JSONL format
+- **rti_instructions.jsonl**: Contains the extracted instruction content in JSONL format
 - **rti_faqs.csv**: Contains extracted FAQs from the PDF
 - **cleaned_guide.txt**: Contains cleaned text from the RTI guide PDF
-- **output_embeddings/**: Contains the generated embeddings for all processed data
+- **rti_info.txt**: Contains cleaned general RTI information
+- **output_embeddings/**: Contains the generated embeddings for all processed data:
+  - **case_law_data_with_content_embeddings.npy**: Embeddings for case law content
+  - **cleaned_guide_embeddings.npy**: Embeddings for the RTI guide
+  - **rti_faqs_embeddings.npy**: Embeddings for RTI FAQs
+  - **rti_info_embeddings.npy**: Embeddings for general RTI information
+- **output_embeddings_rag/**: Contains RAG-optimized embeddings and metadata for retrieval augmented generation
